@@ -29,6 +29,10 @@ var crawler_status = CRAWLER_STATUS_WAITING;
 
 var current_page = '';
 
+// Database
+
+var db = require("./database.js");
+
 /**
  * Remainder:
  * queue.push("http://..."); // add an element at the end of the queue
@@ -245,4 +249,22 @@ console.log('Web UI Listening on port '+PORT);
 //crawl('http://twitter.com/FGRibreau', 'twitter.com');
 //crawl('http://www.speedrabbitpizza.com', 'www.speedrabbitpizza.com');
 //crawl('https://github.com/MD4', '//github.com');
-crawl('http://www.e-doceo.net/', '//www.e-doceo.net')
+//crawl('http://www.e-doceo.net/', '//www.e-doceo.net')
+
+db.init(function(){
+  db.addURL('test1', function(){
+    db.addURL('test2', function(){
+      db.addURL('test3', function(){
+        db.getURLs(function(results){
+          console.log(results);
+          db.existsURL('test2', function(result){
+            console.log(result);
+          });
+          db.existsURL('test4', function(result){
+            console.log(result);
+          });
+        });
+      });
+    });
+  });
+});
