@@ -290,8 +290,10 @@ function sortRanks(object, reverse) {
 console.log("Init DataBase...");
 db.init(function(){
 	console.log("Done.");
-	crawl('http://www.e-doceo.net/', '');
+
+	crawl('http://www.e-doceo.net/', 'www.e-doceo.net');
 	//crawl('http://www.google.com', '');
+
   console.log("Init WebServer...");
   ws.init(function(){
   	console.log("Done.");
