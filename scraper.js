@@ -28,7 +28,7 @@ var current_page = '';
 
 // Database
 
-var db = require("./database.js");
+//var db = require("./database.js");
 var ws = require("./webserver.js");
 
 var accepted_content_type_list = [
@@ -287,9 +287,9 @@ function sortRanks(object, reverse) {
 //		- the most used top-level-domain (TLD: http://en.wikipedia.org/wiki/Top-level_domain )
 //		- ...
 
-console.log("Init DataBase...");
-db.init(function(){
-	console.log("Done.");
+//console.log("Init DataBase...");
+//db.init(function(){
+	//console.log("Done.");
 
 	crawl('http://www.e-doceo.net/', 'www.e-doceo.net');
 	//crawl('http://www.google.com', '');
@@ -318,5 +318,5 @@ db.init(function(){
     ws.start(3000);
     console.log("WebServer started (localhost:3000)");
   });
-});
+//});
 
